@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
-    @render = render_dashboard
   end
 
   def create
