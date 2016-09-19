@@ -17,5 +17,5 @@ class ApplicationController < ActionController::Base
       render (admin? ? "blah blah team display" : "blah blah")
     end
   end
-  
+
 end
