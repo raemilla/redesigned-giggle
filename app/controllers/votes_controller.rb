@@ -3,7 +3,7 @@ class VotesController < ApplicationController
     params[:votes].each do |title|
       pitch = Pitch.find_by(title: title)
       if pitch
-        pitch.votes.create(user: current_user)
+        pitch.votes.create(student: current_student)
       end
     end
   end
