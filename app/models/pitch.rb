@@ -4,4 +4,12 @@ class Pitch < ApplicationRecord
   has_many :students, through: :team_members
   has_many :votes
   has_many :preferences
+
+  before_create :limit_pitches_per_student
+
+  def limit_pitches_per_student
+    if self.author.pitches.count >= ENV["pitches_per_student"]
+      self.errors.add(:author, "You have already submitted the maximum number of pitches")
+    end
+  end
 end
