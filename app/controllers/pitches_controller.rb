@@ -11,7 +11,7 @@ class PitchesController < ApplicationController
       redirect_to root_path
     else
       @errors = pitch.errors.full_messages
-      render 'new'
+      redirect_to root_path
     end
   end
 
