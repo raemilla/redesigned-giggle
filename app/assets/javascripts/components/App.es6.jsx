@@ -1,5 +1,6 @@
 class App extends React.Component {
   constructor() {
+    super()
     this.getPhaseComponents = this.getPhaseComponents.bind(this)
   }
 
