@@ -28,7 +28,6 @@ class StudentPhase0Main extends React.Component {
           <PitchList pitches={this.props.pitches}/>
 
         <h2>submit a pitch:</h2>
-
         <form onSubmit={this.handleSubmit} method="post" action="/pitches">
           <label>working title </label><br/>
           <input ref="pitchTitle" type="text" name="pitch[title]"/><br/>
