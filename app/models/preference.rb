@@ -3,4 +3,5 @@ class Preference < ApplicationRecord
   belongs_to :student
 
   validates :student_id, uniqueness: { scope: :pitch_id }
+
 end
