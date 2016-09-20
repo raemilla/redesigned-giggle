@@ -2,8 +2,9 @@ class PitchesController < ApplicationController
   def create
     @pitch = Pitch.new(pitch_params)
     @pitch.author = current_user
-    if pitch.save
-      render :json => @pitch.as_json
+    if @pitch.save
+      # render :json => @pitch.as_json
+      redirect_to root_path
     else
     end
   end

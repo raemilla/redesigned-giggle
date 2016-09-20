@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @pitches = Pitch.all.as_json(include: {author: {only: :full_name}})
+    @pitches = Pitch.all.as_json(include: {author: {only: :full_name}, votes: {}})
     @students = Student.all.as_json(include: :pitches)
   end
 
