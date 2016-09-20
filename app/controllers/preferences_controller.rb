@@ -10,7 +10,7 @@ class PreferencesController < ApplicationController
   end
 
   def index
-    @students= Student.all
-    @pitches= Pitch.all
+    @pitches= Pitch.pass_hash(Pitch.all)
+    @students= Student.pass_hash
   end
 end

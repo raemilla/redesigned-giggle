@@ -12,4 +12,12 @@ class Student < User
       3 => self.preferences.find{|pref| pref.rank == 3}.pitch.title
     }
   end
+
+  def self.pass_hash
+    preferences= []
+    self.all.each do |student|
+      preferences << {"student" => student, "preferences" => student.preference_count }
+    end
+    preferences
+  end
 end

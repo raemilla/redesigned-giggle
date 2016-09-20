@@ -5,56 +5,28 @@ class AdminPreferencesView extends React.Component {
       pitches: [],
       students: []
     }
-    this.state.pitches.push({
-      id: '1',
-      title: "weather stuff",
-      author: "josh marantz",
-      preference_count: {
-        1: '3',
-        2: '5',
-        3: '1'
-      }
-    })
-    this.state.pitches.push({
-      id: '2',
-      title: "richie stuff",
-      author: "rachael miller",
-      preference_count: {
-        1: '2',
-        2: '4',
-        3: '3'
-      }
-    })
-    this.state.students.push({
-      id: '1',
-      name: 'josh marantz',
-      preferences: {
-        1: 'weather stuff',
-        2: 'other stuff',
-        3: 'richie stuff'
-      }
-    })
-    this.state.students.push({
-      id: '2',
-      name: 'richie eatstoes',
-      preferences: {
-        1: 'richie stuff',
-        2: 'richie stuff 2',
-        3: 'richie stuff 3'
-      }
-    })
-
-    this.pitchRows = this.pitchRows.bind(this)
   }
+    componentDidMount(){
+    link= "/preferences.json"
+    $.ajax({
+      method: 'get',
+      url: link
+    }).done(function(response){
+      this.setState({
+        students: response
+      })
+    }.bind(this))
+    }
+
   //possibly write a preference_count method on the pitch model
-  pitchRows() {
-    result = this.state.pitches.map( (pitch, key) => (
+  pitchRows(pitches) {
+    result = pitches.map( (pitch, key) => (
         <tr className="pitch" key={key}>
-          <td>{pitch.title}</td>
-          <td>{pitch.author}</td>
-          <td>{pitch.preference_count["1"]}</td>
-          <td>{pitch.preference_count["2"]}</td>
-          <td>{pitch.preference_count["3"]}</td>
+          <td>{pitch["pitch"]["title"]}</td>
+          <td>{pitch["author"]}</td>
+          <td>{pitch["preference_rank"]["1"]}</td>
+          <td>{pitch["preference_rank"]["2"]}</td>
+          <td>{pitch["preference_rank"]["3"]}</td>
         </tr>
       )
     )
@@ -66,7 +38,7 @@ class AdminPreferencesView extends React.Component {
   studentRows() {
     result = this.state.students.map( (student, key) => (
         <tr className="pitch" key={key}>
-          <td>{student.name}</td>
+          <td>{student.full_name}</td>
           <td>{student.preferences["1"]}</td>
           <td>{student.preferences["2"]}</td>
           <td>{student.preferences["3"]}</td>
@@ -79,7 +51,9 @@ class AdminPreferencesView extends React.Component {
   }
 
   render() {
+    let pitches= this.props.pitches
     return(
+
       <div>
         <table>
           <thead className="pitch">
@@ -91,10 +65,10 @@ class AdminPreferencesView extends React.Component {
               <th>3rd Places</th>
             </tr>
           </thead>
-          {this.pitchRows()}
+          {this.pitchRows(pitches)}
         </table>
 
-<br></br><br></br><br></br>
+<br></br><br></br>
 
         <table>
           <thead className="student">

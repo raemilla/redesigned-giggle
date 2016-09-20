@@ -15,11 +15,19 @@ class Pitch < ApplicationRecord
 
   def preference_rank
     {
-      1 => self.preferences.select {|pref| pref.rank == 1}.count,
-      2 => self.preferences.select {|pref| pref.rank == 2}.count,
-      3 => self.preferences.select {|pref| pref.rank == 3}.count
+      "1" => self.preferences.select {|pref| pref.rank == 1}.count,
+      "2" => self.preferences.select {|pref| pref.rank == 2}.count,
+      "3" => self.preferences.select {|pref| pref.rank == 3}.count
     }
   end
 
+
+  def self.pass_hash(pitches)
+    preferences= []
+    pitches.each do |pitch|
+      preferences << {"pitch" => pitch,"author"=> pitch.author.full_name, "preference_rank" => pitch.preference_rank }
+    end
+    preferences
+  end
 
 end
