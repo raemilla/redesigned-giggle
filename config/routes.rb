@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   post '/flows/new', to: 'pages#create'
+  get '/flows/continue', to: 'pages#continue'
+  get '/flows/reset', to: 'pages#reset'
 
 
   root 'pages#home'

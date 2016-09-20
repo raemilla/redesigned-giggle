@@ -13,6 +13,9 @@ class AdminPhase0Main extends React.Component {
                 }
               })
             }
+          <form method="get" action="/flows/continue">
+            <input type="submit" value="close pitching and open first round voting"/>
+          </form>
       </section>
     )
   }
