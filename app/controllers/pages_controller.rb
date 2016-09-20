@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     ENV["phase"] = "0"
     ENV["pitches_per_student"] = params[:number_pitches]
     ENV["number_of_teams"] = params[:number_teams]
-    ENV["size_of_pitch_subset"] = params[:size_of_pitch_subset]
+    ENV["size_of_pitch_subset"] = params[:number_top_pitches]
     redirect_to root_path
   end
 
