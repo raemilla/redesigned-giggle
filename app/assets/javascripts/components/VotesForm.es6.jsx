@@ -18,8 +18,7 @@ class VotesForm extends React.Component {
   render() {
     return (
       <form action="/votes" method="post" onSubmit={this.handleSubmit}>
-        <label>weather stuff<input ref={(self) => this.boxes.push(self)} type="checkbox" name="weather stuff" /></label>
-        <label>richie's stuff<input ref={(self) => this.boxes.push(self)} type="checkbox" name="richie's stuff" /></label>
+        {this.props.pitches.map((pitch) => <label key={pitch.id}>{pitch.title}<input key={pitch.id} ref={(self) => this.boxes.push(self)} type="checkbox" name={pitch.title} /></label>)}
         <button value="submit" type="submit"/>
       </form>
     )
