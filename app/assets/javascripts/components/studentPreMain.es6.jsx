@@ -1,7 +1,10 @@
 class StudentPreMain extends React.Component {
   render(){
     return(
-      <h1>yo</h1>
+
+      <section>
+        <h2>Standby for pitching.</h2>
+      </section>
     )
   }
 }
