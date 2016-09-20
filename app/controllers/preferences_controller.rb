@@ -8,4 +8,9 @@ class PreferencesController < ApplicationController
       end
     end
   end
+
+  def index
+    @students= Student.all
+    @pitches= Pitch.all
+  end
 end
