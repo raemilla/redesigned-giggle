@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :students, only: [:new, :create]
+  resources :pitches, only: [:create]
+  resources :votes, only: [:create]
+  resources :preferences, only: [:create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
