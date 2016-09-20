@@ -8,15 +8,15 @@ class App extends React.Component {
     [ phase, admin ] = [this.props.phase, this.props["admin?"]]
     switch (phase) {
       case "pre":
-        return admin ? <adminPreMain />    : <studentPreMain />
+        return admin ? <AdminPreMain />    : <StudentPreMain />
       case "0":
-        return admin ? <adminPhase0Main /> : <studentPhase0Main />
+        return admin ? <AdminPhase0Main /> : <StudentPhase0Main />
       case "1":
-        return admin ? <adminPhase1Main /> : <studentPhase1Main />
+        return admin ? <AdminPhase1Main /> : <StudentPhase1Main />
       case "2":
-        return admin ? <adminPhase2Main /> : <studentPhase2Main />
+        return admin ? <AdminPhase2Main /> : <StudentPhase2Main />
       case "3":
-        return admin ? <adminPhase3Main /> : <studentPhase3Main />
+        return admin ? <AdminPhase3Main /> : <StudentPhase3Main />
     }
   }
 
