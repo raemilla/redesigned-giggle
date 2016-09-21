@@ -31,10 +31,14 @@ class PagesController < ApplicationController
   end
 
   def round_two
-    params[:pitch].each do |pitch_id|
-      pitch = Pitch.find_by(id: pitch_id)
-      pitch.round2 = true
-      pitch.save
+    if params[:pitch].length < ENV["size_of_pitch_subset"].to_i
+       raise ActionController::RoutingError.new("You must select #{ENV["size_of_pitch_subset"]} pitches to move on")
+    else
+      params[:pitch].each do |pitch_id|
+        pitch = Pitch.find_by(id: pitch_id)
+        pitch.round2 = true
+        pitch.save
+      end
     end
     # redirect_to root_path
   end
