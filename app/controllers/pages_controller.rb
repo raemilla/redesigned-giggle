@@ -31,6 +31,13 @@ class PagesController < ApplicationController
   end
 
   def round_two
+    # binding.pry
+    params[:pitch].each do |pitch_id|
+      pitch = Pitch.find_by(id: pitch_id)
+      pitch.round2 = true
+      pitch.save
+    end
+    redirect_to root_path
   end
-  
+
 end

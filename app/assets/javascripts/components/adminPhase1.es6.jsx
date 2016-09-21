@@ -3,9 +3,9 @@ class AdminPhase1Main extends React.Component {
     return(
       <section>
         <h1>admin phase 1 yo</h1>
-        <form method="get" action="/flows/round_two">
+        <form method="post" action="/flows/round_two">
           <PitchList pitches={this.props.pitches} phase={this.props.phase} />
-          <input type="submit" value="move these pitches onto round 2"/>
+          <input type="submit" value="move selected pitches onto round 2"/>
         </form>
         <h2>students yet to vote:</h2>
           {
