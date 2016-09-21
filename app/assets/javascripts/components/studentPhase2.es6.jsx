@@ -1,7 +1,10 @@
 class StudentPhase2Main extends React.Component {
   render(){
+    var filteredPitches = this.props.pitches.filter((pitch) => pitch.round2)
     return(
-      <h1>student phase 2 yo</h1>
+      <section>
+        <PitchList pitches={filteredPitches} phase={this.props.phase} />
+      </section>
     )
   }
 }
