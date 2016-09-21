@@ -1,16 +1,18 @@
 class Pitch extends React.Component {
-  constructor(){
-    super()
-    this.handleChange = this.handleChange.bind(this)
-    this.boxes = []
-  }
-
-  handleChange(event){
-    pitchSubset = this.boxes.filter((box) => box.checked).map((box) => box.name)
-      if (pitchSubset.length > this.props.subset) {
-        return alert(`You can only choose ${this.props.subset} pitches to continue`)
-    }
-  }
+  // constructor(){
+  //   super()
+  //   this.handleChange = this.handleChange.bind(this)
+  //   this.boxes = []
+  // }
+  //
+  // handleChange(){
+  //   pitchSubset = this.boxes.filter((box) => box.checked).map((box) => box.name)
+  //   console.log(pitchSubset.length)
+  //   console.log(this.props.subset)
+  //     if (pitchSubset.length > Number(this.props.subset)) {
+  //       return alert(`You can only choose ${this.props.subset} pitches to continue`)
+  //   }
+  // }
 
   render(){
     return(
