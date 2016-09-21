@@ -3,7 +3,7 @@ class StudentPhase1Main extends React.Component {
     return(
       <div>
         <h1>student phase 1 yo</h1>
-        <VotesForm pitches={this.props.pitches}/>
+        <VotesForm pitches={this.props.pitches} votecount={this.props.votecount}/>
       </div>
     )
   }

@@ -12,7 +12,7 @@ class App extends React.Component {
       case "0":
         return admin ? <AdminPhase0Main pitches={this.props.pitches} students={this.props.students} /> : <StudentPhase0Main pitches={this.props.pitches} />
       case "1":
-        return admin ? <AdminPhase1Main /> : <StudentPhase1Main pitches={this.props.pitches} />
+        return admin ? <AdminPhase1Main /> : <StudentPhase1Main pitches={this.props.pitches} votecount={this.props.size_of_pitch_subset} />
       case "2":
         return admin ? <AdminPhase2Main /> : <StudentPhase2Main />
       case "3":
