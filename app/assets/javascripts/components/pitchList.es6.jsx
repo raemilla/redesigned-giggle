@@ -17,7 +17,7 @@ class PitchList extends React.Component {
       <ul>
       {
         this.state.pitches.map((pitch, idx) => {
-          return (<Pitch key={idx} data={pitch} phase={this.props.phase} />)
+          return (<Pitch key={idx} data={pitch} phase={this.props.phase} subset={this.props.subset} />)
         })
       }
       </ul>
