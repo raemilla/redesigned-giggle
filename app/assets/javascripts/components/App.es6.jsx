@@ -23,7 +23,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <pre><code>{JSON.stringify(this.props,null,2)}</code></pre>
         {this.getPhaseComponents()}
       </div>
     )
