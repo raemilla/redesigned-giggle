@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
+    require_user
     @pitches = Pitch.all.as_json(include: {author: {only: :full_name}, votes: {}})
-    @students = Student.all.as_json(include: :pitches)
+    @students = Student.all.as_json(include: {pitches: {}, votes: {}})
   end
 
   def create

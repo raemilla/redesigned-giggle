@@ -4,6 +4,14 @@ class AdminPhase1Main extends React.Component {
       <section>
         <h1>admin phase 1 yo</h1>
         <PitchList pitches={this.props.pitches} phase={this.props.phase} />
+        <h2>students yet to vote:</h2>
+          {
+            this.props.students.map((student, idx) => {
+              if(student.votes.length === 0){
+                return (<p key={idx}>{student.full_name}</p>)
+              }
+            })
+          }
         <form method="get" action="/flows/continue">
           <input type="submit" value="close first round voting and open second round voting"/>
         </form>
