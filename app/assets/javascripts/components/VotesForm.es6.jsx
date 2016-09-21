@@ -1,6 +1,9 @@
 class VotesForm extends React.Component {
   constructor() {
     super()
+    this.state = {
+      displayForm: true
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.boxes = []
@@ -24,15 +27,22 @@ class VotesForm extends React.Component {
       url: event.target.action,
       method: event.target.method,
       data: {votes: votes}
-    }).done((response) => console.log(response))
+    }).done((response) => {
+      this.setState({
+        displayForm: false
+      })
+
+    })
   }
 
   render() {
     return (
-      <form action="/votes" method="post" onSubmit={this.handleSubmit}>
-        {this.props.pitches.map((pitch) => <label onChange={this.handleChange} key={pitch.id}>{pitch.title}<input key={pitch.id} ref={(self) => this.boxes.push(self)} type="checkbox" name={pitch.title} /></label>)}
-        <button value="submit" type="submit"/>
-      </form>
+      <section>
+        { this.state.displayForm ? <form action="/votes" method="post" onSubmit={this.handleSubmit}>
+          {this.props.pitches.map((pitch) => <label onChange={this.handleChange} key={pitch.id}>{pitch.title}<input key={pitch.id} ref={(self) => this.boxes.push(self)} type="checkbox" name={pitch.title} /><br/></label>)}
+        <input value="submit" type="submit"/>
+        </form> : <p>Thanks for voting! Standby for round 2.</p>}
+      </section>
     )
   }
 }
