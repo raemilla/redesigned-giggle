@@ -5,23 +5,20 @@ class PrefsForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    votes = this.boxes.filter((box) => box.checked).map((box) => box.name)
-    if (votes.length < this.props.votecount) {
-      return alert(`Please select ${this.props.votecount} choices`)
-    }
-    $.ajax({
-      url: event.target.action,
-      method: event.target.method,
-      data: {votes: votes}
-    }).done((response) => console.log(response))
+    // event.preventDefault()
+    // console.log(_form)
+    // $.ajax({
+    //   url: event.target.action,
+    //   method: event.target.method,
+    //   data: JSON.serialize(_form)
+    // }).done((response) => console.log(response))
   }
 
   render() {
     return (
       <form action="/preferences" method="post" onSubmit={this.handleSubmit}>
-        <label>First choice: <input type="checkbox" name={pitch.title} /></label>
-        <button value="submit" type="submit"/>
+        {["1", "2", "3"].map((ranknum) => <PrefsChoices pitches={this.props.pitches} key={ranknum} ranknum={ranknum} />)}
+        <button value="submit" type="submit">submit</button>
       </form>
     )
   }
