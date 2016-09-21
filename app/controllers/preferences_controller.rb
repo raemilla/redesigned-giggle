@@ -1,10 +1,10 @@
 class PreferencesController < ApplicationController
   def create
-    prefs = params.permit(prefs: []).require(:prefs)
-    3.times do |i|
-      pitch = Pitch.find_by(:title, prefs[i])
+    prefs = params.require(:prefs).permit('1', '2', '3')
+    prefs.each do |ranknum, pitch_id|
+      pitch = Pitch.find_by(id: pitch_id)
       if pitch
-        pitch.preferences.create(user: current_user, rank: i+1)
+        pitch.preferences.create(student: current_student, rank: ranknum)
       end
     end
   end

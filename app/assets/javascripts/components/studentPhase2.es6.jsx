@@ -4,6 +4,7 @@ class StudentPhase2Main extends React.Component {
     return(
       <section>
         <PitchList pitches={filteredPitches} phase={this.props.phase} />
+        <PrefsForm pitches={filteredPitches}/>
       </section>
     )
   }
