@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/flows/new', to: 'pages#create'
   get '/flows/continue', to: 'pages#continue'
   get '/flows/reset', to: 'pages#reset'
+  get '/flows/round_two', to: 'pages#round_two'
 
 
   root 'pages#home'

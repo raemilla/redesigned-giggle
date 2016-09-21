@@ -29,4 +29,8 @@ class PagesController < ApplicationController
     ENV["phase"] = "pre"
     redirect_to root_path
   end
+
+  def round_two
+  end
+  
 end

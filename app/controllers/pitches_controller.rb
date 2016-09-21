@@ -8,7 +8,7 @@ class PitchesController < ApplicationController
     else
     end
   end
-
+  
   private
   def pitch_params
     params.require(:pitch).permit(:title, :description)
