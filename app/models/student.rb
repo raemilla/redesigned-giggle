@@ -6,6 +6,7 @@ class Student < User
   has_many :preferences
 
   def preference_count
+    return nil if self.preferences.empty?
     {
       1 => self.preferences.find{|pref| pref.rank == 1}.pitch.title,
       2 => self.preferences.find{|pref| pref.rank == 2}.pitch.title,

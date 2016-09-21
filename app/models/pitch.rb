@@ -14,6 +14,7 @@ class Pitch < ApplicationRecord
   end
 
   def preference_rank
+    return nil if self.preferences.empty?
     {
       "1" => self.preferences.select {|pref| pref.rank == 1}.count,
       "2" => self.preferences.select {|pref| pref.rank == 2}.count,
