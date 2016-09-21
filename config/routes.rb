@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
+  resources :preferences, only: [:index]
   resources :students, only: [:new, :create]
   resources :pitches, only: [:create]
   resources :votes, only: [:create]

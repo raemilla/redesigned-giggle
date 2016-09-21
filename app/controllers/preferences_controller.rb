@@ -8,4 +8,9 @@ class PreferencesController < ApplicationController
       end
     end
   end
+
+  def index
+    @pitches= Pitch.pass_hash(Pitch.all)
+    @students= Student.pass_hash
+  end
 end
