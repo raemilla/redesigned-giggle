@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @pitches = Pitch.all.as_json(include: {author: {only: :full_name}})
-    @students = Student.all.as_json(include: :pitches)
+    require_user
+    @pitches = Pitch.all.as_json(include: {author: {only: :full_name}, votes: {}})
+    @students = Student.all.as_json(include: {pitches: {}, votes: {}})
   end
 
   def create
@@ -28,4 +29,8 @@ class PagesController < ApplicationController
     ENV["phase"] = "pre"
     redirect_to root_path
   end
+
+  def round_two
+  end
+  
 end
