@@ -7,26 +7,21 @@ class AdminPreferencesView extends React.Component {
     }
   }
     componentDidMount(){
-    link= "/preferences.json"
-    $.ajax({
-      method: 'get',
-      url: link
-    }).done(function(response){
       this.setState({
-        students: response
-      })
-    }.bind(this))
+        pitches: this.props.pitches,
+        students: this.props.students
+    })
     }
 
   //possibly write a preference_count method on the pitch model
-  pitchRows(pitches) {
-    result = pitches.map( (pitch, key) => (
+  pitchRows() {
+    result = this.state.pitches.map( (pitch, key) => (
         <tr className="pitch" key={key}>
-          <td>{pitch["pitch"]["title"]}</td>
-          <td>{pitch["author"]}</td>
-          <td>{pitch["preference_rank"]["1"]}</td>
-          <td>{pitch["preference_rank"]["2"]}</td>
-          <td>{pitch["preference_rank"]["3"]}</td>
+          <td>{pitch.title}</td>
+          <td>{pitch.author.full_name}</td>
+          <td>{pitch.preference_rank[1]}</td>
+          <td>{pitch.preference_rank[2]}</td>
+          <td>{pitch.preference_rank[3]}</td>
         </tr>
       )
     )
@@ -39,9 +34,9 @@ class AdminPreferencesView extends React.Component {
     result = this.state.students.map( (student, key) => (
         <tr className="pitch" key={key}>
           <td>{student.full_name}</td>
-          <td>{student.preferences["1"]}</td>
-          <td>{student.preferences["2"]}</td>
-          <td>{student.preferences["3"]}</td>
+          <td>{student.preference_count["1"]}</td>
+          <td>{student.preference_count["2"]}</td>
+          <td>{student.preference_count["3"]}</td>
         </tr>
       )
     )
@@ -51,7 +46,6 @@ class AdminPreferencesView extends React.Component {
   }
 
   render() {
-    let pitches= this.props.pitches
     return(
 
       <div>
@@ -65,7 +59,7 @@ class AdminPreferencesView extends React.Component {
               <th>3rd Places</th>
             </tr>
           </thead>
-          {this.pitchRows(pitches)}
+          {this.pitchRows()}
         </table>
 
 <br></br><br></br>
