@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+On the Thursday before the final week of Dev Bootcamp, students submit final project pitches to be voted on by their peers. The voting process is done manually by the two cohort leads. Typically, voting is conducted via Google Surveys, and consists of two rounds. In the first, students submit all their pitches, and depending on the number of total pitches there are, students vote for just under half to move onto the next round of voting. In the second round, the subset of pitches with the highest number of votes are then ranked by each student in order of preference. Of the subset, an even smaller subset are chosen to be implemented by teams of students. Teams are created based on student preferences.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+On the Monday before our pitch submissions, our cohort was presented with the challenge to automate the voting process, in an attempt to keep things more organized and less reliant on manual labor, using the knowledge we had gained in the 19 previous weeks. Admittedly we did not have time to completely automate this process, but the challenge was a great one nonetheless, and my team is proud of its results.
